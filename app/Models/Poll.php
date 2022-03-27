@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\Option;
 use App\Models\Vote;
+use App\Models\Option;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Poll extends Model
@@ -27,5 +29,13 @@ class Poll extends Model
      */
     public function votes() {
         return $this->hasMany(Vote::class);
+    }
+
+    /**
+     * Get route key for model - for route model binding
+     * @return string
+     */
+    public function getRouteKeyName() {
+        return 'slug';
     }
 }
