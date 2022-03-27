@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Poll;
+use App\Jobs\ProcessVote;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 
 class StoreVoteRequest extends FormRequest
 {
@@ -25,7 +28,9 @@ class StoreVoteRequest extends FormRequest
     {
         return [
             'email' => 'required|unique:votes',
-            'option' => 'required'
+            'option_id' => 'required',
+            'poll_slug' => 'required'
         ];
     }
+
 }
