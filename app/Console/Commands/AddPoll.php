@@ -63,11 +63,11 @@ class AddPoll extends Command
             ])
         );
 
-        // $this->info(
-        //     __("Poll is viewable at this url: :url", [
-        //         'url' => route('test')
-        //     ])
-        // );
+        $this->info(
+            __("Poll is viewable at this url: :url", [
+            'url' => route('poll.show', $poll)
+            ])
+        );
 
         return 0;
     }
