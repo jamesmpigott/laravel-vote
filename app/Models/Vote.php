@@ -12,11 +12,10 @@ class Vote extends Model
     use HasFactory;
 
     protected $fillable = [
-
-    ];
-
-    protected $casts = [
-        'email' => 'encrypted'
+        'email',
+        'poll_id',
+        'option_id',
+        'ip_address'
     ];
 
     /**
