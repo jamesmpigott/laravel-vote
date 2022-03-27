@@ -15,6 +15,10 @@ class Vote extends Model
 
     ];
 
+    protected $casts = [
+        'email' => 'encrypted'
+    ];
+
     /**
      * Get the poll for this vote
      */
