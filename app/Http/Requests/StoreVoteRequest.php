@@ -33,4 +33,9 @@ class StoreVoteRequest extends FormRequest
         ];
     }
 
+    public function passedValidation() {
+        $validated = $this->validator->validated();
+
+        dispatch(new ProcessVote($validated, $this->ip()));
+    }
 }
