@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <example-component></example-component>
+    <voting-form slug="{{ $poll->slug }}"></voting-form>
 @endsection
