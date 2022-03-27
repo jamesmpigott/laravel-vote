@@ -18,9 +18,9 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen py-16 bg-slate-100">
             <!-- Page Content -->
-            <main id="app" class="container px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <main id="app" class="container bg-white p-8 max-w-[550px] mx-auto rounded-lg shadow-md">
                 @yield('content')
             </main>
         </div>
