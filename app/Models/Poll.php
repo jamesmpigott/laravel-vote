@@ -10,6 +10,10 @@ class Poll extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title'
+    ];
+
     /**
      * Get the options for this poll
      */
