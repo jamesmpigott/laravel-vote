@@ -3,35 +3,30 @@
 namespace App\Models;
 
 use App\Models\Poll;
+use App\Models\Option;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Option extends Model
+class Vote extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'value',
-        'poll_id'
+
     ];
 
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-        'poll_id'
-    ];
-    
     /**
-     * get the poll for this option
+     * Get the poll for this vote
      */
     public function poll() {
         return $this->belongsTo(Poll::class);
     }
 
     /**
-     * Get the votes for this option
+     * Get the option for this vote
      */
-    public function votes() {
-        return $this->hasMany(Vote::class);
+    public function option() {
+        return $this->belongsTo(Option::class);
     }
+
 }
