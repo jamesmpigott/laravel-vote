@@ -9,9 +9,10 @@
  1. Install server-side dependencies `composer install`.
  2. Install client-side dependencies `npm install`.
  3. Add `NOTIFICATION_EMAIL` to your `.env` file.
- 4. Run `php artisan migrate`.
- 5. Run `php artisan vote:add-poll` and follow the prompts ***or*** run `php artisan db:seed --class=PollSeeder`.
- 6. Once the above command has been completed, the URL for your poll will be provided.
+ 4. run `php artisan key:generate`
+ 5. Run `php artisan migrate`.
+ 6. Run `php artisan vote:add-poll` and follow the prompts ***or*** run `php artisan db:seed --class=PollSeeder`.
+ 7. Once the above command has been completed, the URL for your poll will be provided.
 
 ### Things that need work
 - Email templates should look better
