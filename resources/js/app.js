@@ -30,3 +30,16 @@ Vue.component('voting-form', require('./components/VotingForm.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+
+document.addEventListener('click', function(event){
+    if(event.target.id !== 'hideRegistration') return;
+
+    var registrationForm = document.getElementById('register');
+    var loginForm = document.getElementById('login');
+
+    if(loginForm && registrationForm) {
+        registrationForm.classList.toggle('hidden');
+        loginForm.classList.toggle('hidden');
+    }
+});
