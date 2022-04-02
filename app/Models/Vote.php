@@ -15,7 +15,12 @@ class Vote extends Model
         'email',
         'poll_id',
         'option_id',
-        'ip_address'
+        'ip_address',
+        'geolocation'
+    ];
+
+    protected $casts = [
+        'geolocation' => 'array'
     ];
 
     /**
