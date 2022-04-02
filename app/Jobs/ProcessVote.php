@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\Poll;
 use App\Models\Vote;
 use Illuminate\Bus\Queueable;
+use App\Services\IpGeolocationService;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -32,12 +33,15 @@ class ProcessVote implements ShouldQueue
      */
     public function handle() {
         $poll = Poll::where('slug', $this->data['poll_slug'])->first();
+
+        $location = IpGeolocationService::getLocationFromIP($this->ip);
         
         Vote::create([
             'poll_id' => $poll->id,
             'email' => $this->data['email'],
             'option_id' => $this->data['option_id'],
-            'ip_address' => $this->ip
+            'ip_address' => $this->ip,
+            'geolocation' => $location
         ]);
     }
 }
