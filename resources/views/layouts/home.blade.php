@@ -11,7 +11,6 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        {{-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> --}}
         <link href="https://fonts.googleapis.com/css2?family=Asar&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
         <!-- Styles -->
@@ -20,12 +19,28 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-serif antialiased">
-        <div class="min-h-screen bg-gradient-to-r from-yellow-200 via-pink-200 to-pink-400 flex items-center justify-center">
+    <body class="font-sans antialiased">
+        <div class="min-h-screen flex items-center justify-center bg-center bg-cover" style="background-image: url(https://tailwindcss.com/_next/static/media/hero@75.4dea7abe609fc522c039fba7662ceea2.jpg);">
             <!-- Page Content -->
             <main id="app">
-                <div class="container text-center">
-                    <h1 class="text-6xl font-light">Super Simple Polls</h1>
+                <div class="container flex justify-between">
+                    <div class="w-full lg:w-5/12 text-left">
+                        <h1 class="text-9xl font-light tracking-tight font-serif">{{ __("Super Simple Polls") }}</h1>
+
+                        <p class="block mt-8 text-xl">{{ __("Build beautiful polls, with none of the fuss.") }}</p>
+                    </div>
+                    <div class="w-full lg:w-5/12">
+                        <div class="bg-white rounded-lg p-8 drop-shadow-xl">
+                            <span class="font-serif text-4xl block text-left mb-8">{{ __("Get Started") }}</span>
+                            <div id="register">
+                                @include('auth.register')
+                                <button class="block mt-4 text-sm text-gray-700" id="hideRegistration">{{ __("Already have an account? Login") }}</button>
+                           </div>
+                            <div id="login" class="hidden">
+                                @include('auth.login')
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
