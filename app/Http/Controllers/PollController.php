@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PollController extends Controller
 {
     public function show(Poll $poll) {
-        return view('index', [
+        return view('poll.show', [
             'poll' => $poll
         ]);
     }
