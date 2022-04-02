@@ -15,4 +15,9 @@ use App\Http\Controllers\PollController;
 |
 */
 
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/polls/{poll}', [PollController::class, 'show'])->name('poll.show');
+
+Auth::routes();
+
