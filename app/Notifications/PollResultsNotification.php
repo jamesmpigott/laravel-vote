@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Models\Poll;
+use App\Mail\PollResults;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -40,17 +41,10 @@ class PollResultsNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $results = "";
-        foreach($this->poll->options as $option) {
-            $results .= trans(":option :votes votes \n", [
-                'option' => $option->value,
-                'votes' => $option->votes()->count()
-            ]);
-        }
-
-        return (new MailMessage)
-            ->subject(trans("Poll results for :poll", ['poll' => $this->poll->title]))
-            ->line($results);
+        $address = $notifiable->routeNotificationFor('mail');
+        
+        return (new PollResults(trans("Poll results for :poll", ['poll' => $this->poll->title]), $this->poll))
+            ->to($address);
     }
 
     /**
