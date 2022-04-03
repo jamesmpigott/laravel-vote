@@ -7,7 +7,6 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,6 +19,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('voting-form', require('./components/VotingForm.vue').default);
+Vue.component('modal', require('./components/Modal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,6 +29,19 @@ Vue.component('voting-form', require('./components/VotingForm.vue').default);
 
 const app = new Vue({
     el: '#app',
+    data() {
+        return {
+          isModalVisible: false,
+        };
+    },
+    methods: {
+        showModal() {
+          this.isModalVisible = true;
+        },
+        closeModal() {
+          this.isModalVisible = false;
+        }
+    }
 });
 
 
