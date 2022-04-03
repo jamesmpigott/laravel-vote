@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'serif': ['Asar', 'ui-serif', 'Georgia' ],
-      'sans': ['Nunito', 'ui-sans-serif', 'system-ui']
+      'sans': ['Raleway', 'ui-sans-serif', 'system-ui']
     },
     extend: {},
   },
