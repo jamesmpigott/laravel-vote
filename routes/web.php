@@ -25,9 +25,9 @@ Auth::routes();
 
 Route::group(['middleware' => 'guest'], function(){
     
-    Route::group(['as' => 'github.'], function(){
-        Route::get('/sign-in/github', [ThirdPartyLoginController::class, 'githubLogin'])->name('login');
-        Route::get('/sign-in/github/redirect', [ThirdPartyLoginController::class, 'githubRedirect'])->name('redirect');
+    Route::group(['as' => 'oauth.'], function(){
+        Route::get('/sign-in/{driver}', [ThirdPartyLoginController::class, 'oauthLogin'])->name('login');
+        Route::get('/sign-in/{driver}/redirect', [ThirdPartyLoginController::class, 'oauthRedirect'])->name('redirect');
     });
 
 });

@@ -11,21 +11,23 @@ use Laravel\Socialite\Facades\Socialite;
 
 class ThirdPartyLoginController extends Controller
 {
-    public function githubLogin() {
-        return Socialite::driver('github')->redirect();
+    public function oauthLogin(string $driver) {
+        return Socialite::driver($driver)->redirect();
     }
 
-    public function githubRedirect() {
-        $githubUser = Socialite::driver('github')->user();
-
-        $user = User::updateOrCreate([
-            'github_id' => $githubUser->id,
+    public function oauthRedirect(string $driver) {
+        $oauthUser = Socialite::driver($driver)->user();
+        
+        $user = User::firstOrCreate([
+            'oauth_id' => $oauthUser->getId(),
+            'oauth_source' => $driver,
         ], [
-            'name' => $githubUser->name,
+            'name' => $oauthUser->getName(),
             'password' => Hash::make(Str::random(24)),
-            'email' => $githubUser->email,
-            'github_token' => $githubUser->token,
-            'github_refresh_token' => $githubUser->refreshToken,
+            'email' => $oauthUser->email,
+            'oauth_token' => $oauthUser->token,
+            'oauth_refresh' => $oauthUser->refreshToken,
+            'avatar' => $oauthUser->getAvatar(),
         ]);
 
         Auth::login($user);
