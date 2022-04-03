@@ -31,14 +31,25 @@
                     </div>
                     <div class="w-full lg:w-5/12">
                         <div class="bg-white rounded-lg p-8 drop-shadow-xl">
-                            <span class="font-serif text-4xl block text-left mb-8">{{ __("Get Started") }}</span>
+                            <span class="font-serif text-4xl block text-left mb-4">{{ __("Get Started") }}</span>
+
+                            <button class="block my-4 text-sm text-gray-700" id="hideRegistration">{{ __("Already have an account? Login") }}</button>
+
                             <div id="register">
                                 @include('auth.register')
-                                <button class="block mt-4 text-sm text-gray-700" id="hideRegistration">{{ __("Already have an account? Login") }}</button>
-                           </div>
+                            </div>
                             <div id="login" class="hidden">
                                 @include('auth.login')
                             </div>
+
+                            <a href="{{ route('github.login') }}"
+                                class="mt-4 text-center rounded-lg font-medium text-sm flex items-center justify-center p-2 bg-[#24292f] text-white">
+                                <img src="{{ asset('images/GitHub-Mark-Light-32px.png') }}" 
+                                    class="mr-2"
+                                    width="24"
+                                    height="24">
+                                {{ __('Login with Github') }}
+                            </a>
                         </div>
                     </div>
                 </div>
