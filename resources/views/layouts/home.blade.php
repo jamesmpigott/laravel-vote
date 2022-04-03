@@ -78,10 +78,23 @@
                                         {{ __("Hi, :name", ['name' => Auth::user()->name]) }} 
                                     </span>
                                 </div>
+
+                                <x-button type="button" class="mt-8 w-full" @click="showModal">{{ __("Create New Poll") }}</x-button>
                             @endif
                         </div>
                     </div>
                 </div>
+                @if(Auth::user())
+                    <modal v-show="isModalVisible" @close="closeModal">
+                        <template v-slot:title>
+                            {{ __('Test Title') }}
+                        </template>
+
+                        <template v-slot:body>
+                            Test body
+                        </template>
+                    </modal>
+                @endif
             </main>
         </div>
     </body>
