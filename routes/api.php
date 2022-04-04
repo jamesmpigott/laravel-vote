@@ -20,7 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware(['auth:sanctum'])->group(function(){
+    Route::post('/create/poll', [PollController::class, 'create']);
+});
+
 Route::get('polls/', [PollController::class, 'index']);
 Route::get('polls/{poll}', [PollController::class, 'show']);
-
 Route::post('vote', [VoteController::class, 'processVote']);
