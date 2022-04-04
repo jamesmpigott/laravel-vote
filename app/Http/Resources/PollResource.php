@@ -16,6 +16,7 @@ class PollResource extends JsonResource
     {
         return [
             'title' => $this->title,
+            'url' => route('poll.show', $this),
             'slug' => $this->slug,
             'options' => $this->options
         ];
