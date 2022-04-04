@@ -26,7 +26,7 @@
                 role="dialog"
                 aria-modal="true">
 
-                <div class="modal-content py-4 text-left px-6">
+                <div class="modal-content p-6 text-left">
                     <div class="flex justify-between items-center pb-3">
                         <p class="text-2xl font-bold">
                             <slot name="title">
