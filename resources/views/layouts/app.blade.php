@@ -11,7 +11,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Asar&family=Raleway:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Asar&family=Raleway:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -20,11 +20,15 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen py-16 bg-slate-100">
-            <!-- Page Content -->
-            <main id="app" class="container bg-white p-8 max-w-[550px] mx-auto rounded-lg shadow-md">
-                @yield('content')
-            </main>
+        <div class="min-h-screen flex flex-col items-center justify-center bg-center bg-cover relative" 
+            style="background-color: #8EC5FC;background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);"
+        >
+            @yield('content')
+
+            <footer class="w-full fixed bottom-0">
+                
+            </footer>
         </div>
     </body>
 </html>
+

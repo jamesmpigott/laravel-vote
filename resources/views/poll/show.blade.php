@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-    <voting-form slug="{{ $poll->slug }}"></voting-form>
+    <main id="app" class="container bg-white p-8 max-w-[550px] mx-auto rounded-lg shadow-md">
+        <voting-form slug="{{ $poll->slug }}"></voting-form>
+    </main>    
 @endsection
