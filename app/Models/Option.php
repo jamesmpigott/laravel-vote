@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Poll;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,14 +13,23 @@ class Option extends Model
 
     protected $fillable = [
         'value',
-        'poll_id'
+        'poll_id',
+        'slug'
     ];
 
     protected $hidden = [
         'created_at',
         'updated_at',
-        'poll_id'
+        'poll_id',
+        'id'
     ];
+
+    protected static function boot() {
+        parent::boot();
+        static::creating(function(Option $model){
+            $model->slug = Str::random(32);
+        });
+    }
     
     /**
      * get the poll for this option
