@@ -18,6 +18,13 @@ class Poll extends Model
         'slug'
     ];
 
+    protected static function boot() {
+        parent::boot();
+        static::creating(function(Poll $model){
+            $model->slug = Str::random(32);
+        });
+    }
+
     /**
      * Get the options for this poll
      */
