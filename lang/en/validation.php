@@ -142,8 +142,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'options.*.value' => [
+            'required' => 'This option must have a value',
         ],
     ],
 
