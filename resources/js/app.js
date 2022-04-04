@@ -20,6 +20,7 @@ window.Vue = require('vue').default;
 
 Vue.component('voting-form', require('./components/VotingForm.vue').default);
 Vue.component('modal', require('./components/Modal.vue').default);
+Vue.component('poll-builder', require('./components/PollBuilder.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
