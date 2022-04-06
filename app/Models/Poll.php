@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Vote;
 use App\Models\Option;
 use Illuminate\Support\Str;
@@ -37,6 +38,13 @@ class Poll extends Model
      */
     public function votes() {
         return $this->hasMany(Vote::class);
+    }
+
+    /**
+     * get the user that created this poll
+     */
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     /**
