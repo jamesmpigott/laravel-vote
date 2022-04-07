@@ -16,7 +16,8 @@ class Poll extends Model
 
     protected $fillable = [
         'title',
-        'slug'
+        'slug',
+        'user_id'
     ];
 
     protected static function boot() {
