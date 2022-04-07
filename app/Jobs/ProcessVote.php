@@ -35,7 +35,20 @@ class ProcessVote implements ShouldQueue
     public function handle() {
         $poll = Poll::where('slug', $this->data['poll_slug'])->first();
 
-        $location = IpGeolocationService::getLocationFromIP($this->ip);
+        $local_ips = [
+            '127.0.0.1',
+            'localhost',
+            '::1',
+            '192.168.10.1'
+        ];
+
+        $ip = $this->ip;
+
+        if(in_array($ip, $local_ips)){
+            $ip = file_get_contents("http://ipecho.net/plain");
+        }
+        
+        $location = IpGeolocationService::getLocationFromIP($ip);
 
         $option = Option::where('slug', $this->data['option_id'])->first();
         
