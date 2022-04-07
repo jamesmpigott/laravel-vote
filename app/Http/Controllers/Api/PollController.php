@@ -7,6 +7,7 @@ use App\Models\Option;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PollResource;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePollRequest;
 use Illuminate\Contracts\Validation\Validator;
 
@@ -24,7 +25,8 @@ class PollController extends Controller
         $validated = $request->validated();
         
         $poll = Poll::create([
-            'title' => $validated['title']
+            'title' => $validated['title'],
+            'user_id' => Auth::user()->id
         ]);
 
         foreach($validated['options'] as $opt) {
