@@ -17,7 +17,10 @@
                 @if(!Auth::user())
                     <span class="font-serif text-4xl block text-left mb-4">{{ __("Get Started") }}</span>
 
-                    <button class="block my-4 text-sm text-gray-700" id="hideRegistration">{{ __("Already have an account? Login") }}</button>
+                    <button class="block my-4 text-sm text-gray-700" id="hideRegistration">
+                        {{ __("Already have an account?") }}
+                        <span class="underline pointer-events-none">{{ __(" Login") }}</span>
+                    </button>
 
                     <div id="register">
                         @include('auth.register')
