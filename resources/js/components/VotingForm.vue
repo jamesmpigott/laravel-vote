@@ -18,10 +18,10 @@
                         type="radio"
                         name="option"
                         v-model="fields.option_id"
-                        v-bind:id="'option_' + option.id"
-                        v-bind:value="option.id">
+                        v-bind:id="'option_' + option.slug"
+                        v-bind:value="option.slug">
                     <label class="form-check-label inline-block text-gray-800 hover:cursor-pointer"
-                        v-bind:for="'option_' + option.id">
+                        v-bind:for="'option_' + option.slug">
                         {{ option.value }}
                     </label>
                 </div>
