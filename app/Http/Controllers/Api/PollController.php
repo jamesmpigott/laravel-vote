@@ -38,4 +38,12 @@ class PollController extends Controller
 
         return new PollResource($poll);
     }
+
+    public function userPolls() {
+        $user = Auth::user();
+
+        return PollResource::collection(
+            Poll::where('user_id', Auth::user()->id)->get()
+        );
+    }
 }
