@@ -102,6 +102,8 @@
                         this.success = true;
                         this.errors = {};
                         this.pollData = response.data.data;
+
+                        this.$root.$emit('poll-builder-update');
                     })
                     .catch((error) => {
                         if(error.response.status == 422) {

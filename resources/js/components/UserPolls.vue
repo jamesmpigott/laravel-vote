@@ -28,7 +28,6 @@
                 axios.get('/api/get-user-polls/' )
                     .then((response) => {
                         this.polls = response.data.data;
-                        console.log(this.polls);
                     })
                     .catch((error) => {
                         console.log(error);
@@ -37,6 +36,10 @@
         },
         mounted() {
             this.loadPolls();
+
+            this.$root.$on('poll-builder-update', () => {
+                this.loadPolls();
+            });
         }
     }
 </script>
