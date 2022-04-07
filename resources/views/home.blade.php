@@ -6,13 +6,13 @@
 
 @section('content')
 <main id="app">
-    <div class="container flex justify-between md:gap-8 md:items-center lg:items-start">
+    <div class="container flex flex-wrap md:flex-nowrap justify-between md:gap-8 md:items-center lg:items-start">
         <div class="w-full lg:w-5/12 text-left">
             <h1 class="text-9xl font-light tracking-tight font-serif">{{ __("Super Simple Polls") }}</h1>
 
             <p class="block mt-8 text-xl font-medium">{{ __("Build beautiful polls, with none of the fuss.") }}</p>
         </div>
-        <div class="w-full lg:w-5/12">
+        <div class="w-full mt-10 md:mt-0 lg:w-5/12 xl:w-4/12">
             <div class="bg-white rounded-lg p-8 drop-shadow-xl">
                 @if(!Auth::user())
                     <span class="font-serif text-4xl block text-left mb-4">{{ __("Get Started") }}</span>
@@ -66,6 +66,8 @@
                     </div>
 
                     <x-button type="button" class="mt-8 w-full" @click="showModal">{{ __("Build a new Poll") }}</x-button>
+
+                    <user-polls></user-polls>
                 @endif
             </div>
         </div>
