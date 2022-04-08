@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -22,6 +23,7 @@ Vue.component('voting-form', require('./components/VotingForm.vue').default);
 Vue.component('modal', require('./components/Modal.vue').default);
 Vue.component('poll-builder', require('./components/PollBuilder.vue').default);
 Vue.component('user-polls', require('./components/UserPolls.vue').default);
+Vue.component('pollResults', require('./components/PollResults.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,15 +35,25 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
-          isModalVisible: false,
+            currentModalComponent: '',
+            modalTitle: 'test title',
+            subdata: {
+                pollSlug: '',
+            }
         };
     },
     methods: {
         showModal() {
-          this.isModalVisible = true;
+          this.$root.$emit('open-modal');
+          this.$root.$emit('set-modal-data', 'yo', this.modalTitle);
         },
-        closeModal() {
-          this.isModalVisible = false;
+        setModalTitle(title) {
+            this.modalTitle = title;
+        }
+    },
+    computed: {
+        switchModalComponent() {
+            return this.currentModalComponent;
         }
     }
 });

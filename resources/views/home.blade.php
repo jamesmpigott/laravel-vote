@@ -65,7 +65,7 @@
                         </span>
                     </div>
 
-                    <x-button type="button" class="mt-8 w-full" @click="showModal">{{ __("Build a new Poll") }}</x-button>
+                    <x-button type="button" class="mt-8 w-full" @click="setModalTitle('Poll Builder');showModal(); currentModalComponent = 'poll-builder';">{{ __("Build a new Poll") }}</x-button>
 
                     <user-polls></user-polls>
                 @endif
@@ -73,15 +73,17 @@
         </div>
     </div>
     @if(Auth::user())
-        <modal v-show="isModalVisible" @close="closeModal">
-            <template v-slot:title>
+        <modal>
+            {{-- <template v-slot:title>
                 {{ __("Let's build a poll!") }}
-            </template>
+            </template> --}}
 
             <template v-slot:body>
-                <poll-builder></poll-builder>
+                <component v-bind:is="switchModalComponent" :props="subdata"></component>
+                {{-- <poll-builder></poll-builder> --}}
             </template>
         </modal>
+
     @endif
 </main>
 @endsection

@@ -1,5 +1,5 @@
 <template>
-    <div class="z-100 fixed w-full h-full top-0 left-0 flex items-center justify-center transition-all duration-75 ease-in">
+    <div v-if="active" class="z-100 fixed w-full h-full top-0 left-0 flex items-center justify-center transition-all duration-75 ease-in">
         <transition
             enter-class="ease-out duration-300"
             enter-from-class="opacity-0"
@@ -9,7 +9,7 @@
             leave-to-class="opacity-0">
 
             <div class="absolute w-full h-full transition-opacity">
-                <div class="absolute inset-0 bg-gray-900 opacity-75" @click="close"></div>
+                <div class="absolute inset-0 bg-gray-900 opacity-75" :click="close"></div>
             </div>
 
         </transition>
@@ -30,7 +30,7 @@
                     <div class="flex justify-between items-center pb-3">
                         <p class="text-2xl font-bold">
                             <slot name="title">
-                                Modal Title
+                                {{ title }}
                             </slot>
                         </p>
                         <div 
@@ -57,11 +57,31 @@
 
 <script>
   export default {
-    methods: {
-      close() {
-        this.show = false;
-        this.$emit('close');
-      },
+    data: function() {
+        return {
+            active: false,
+            data: {},
+            title: null
+        }
     },
+    methods: {
+        close() {
+            this.active = false;
+            this.$emit('close');
+        },
+        open() {
+          this.active = true;
+        },
+        set(data, title) {
+            this.data = data;
+            this.title = title;
+        }
+    },
+    mounted () {
+        this.$nextTick(function () {
+            this.$root.$on('set-modal-data', this.set);
+            this.$root.$on('open-modal', this.open);
+        }.bind(this));
+    }
   };
 </script>
