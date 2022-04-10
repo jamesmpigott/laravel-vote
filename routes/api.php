@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::post('/create/poll', [PollController::class, 'create']);
     Route::get('/get-user-polls', [PollController::class, 'userPolls']);
+    Route::get('/poll-results/{poll}', [PollController::class, 'pollResults']);
 });
 
 Route::get('polls/', [PollController::class, 'index']);

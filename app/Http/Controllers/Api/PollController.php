@@ -46,4 +46,30 @@ class PollController extends Controller
             Poll::where('user_id', Auth::user()->id)->get()
         );
     }
+
+    public function pollResults(Poll $poll) {
+        $options = [];
+        $locs = [];
+
+        foreach($poll->options as $opt) {
+            $options[] = [
+                'value' => $opt->value,
+                'voteCount' => $opt->votes->count()
+            ];
+        }
+
+        foreach($poll->votes as $vote) {
+            $locs[] = [
+                'coords' => [
+                    (float)$vote->geolocation['long'],
+                    (float)$vote->geolocation['lat']
+                ]
+            ];
+        }
+        
+        return [
+            'options' => $options,
+            'locs' => $locs
+        ];
+    }
 }
