@@ -25,7 +25,10 @@ class StorePollRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'options.*.value' => 'required'
+            'options.*.value' => 'required',
+            'options.*.color' => 'required|string|min:7|max:7|starts_with:#',
+            'anon_voting' => 'boolean',
+            'geolocation_tracking' => 'boolean',
         ];
     }
 }
