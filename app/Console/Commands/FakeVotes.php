@@ -2,10 +2,11 @@
 
 namespace App\Console\Commands;
 
+use Faker;
 use App\Models\Poll;
 use App\Models\Vote;
 use Illuminate\Console\Command;
-use Faker;
+use App\Services\IpGeolocationService;
 
 class FakeVotes extends Command
 {
@@ -42,13 +43,14 @@ class FakeVotes extends Command
             
             $option = $options->random();
             $email = $faker->email;
+            $ip = $faker->ipv4;
 
             $vote = Vote::create([
                 'poll_id' => $poll->id,
                 'option_id' => $option->id,
                 'email' => $email,
                 'ip_address' => $faker->ipv4,
-                'geolocation' => []
+                'geolocation' => IpGeolocationService::getLocationFromIP($ip)
             ]);
 
             $this->info(trans(
