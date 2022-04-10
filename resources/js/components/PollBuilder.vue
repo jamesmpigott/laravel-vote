@@ -38,8 +38,22 @@
                 
                 <div v-for="(option, index) in options" class="w-full">
                     <div class="flex justify-between items-center">
-                        <input v-model="option.value" type="text" name="value" :data-index="index" class="w-11/12 rounded border-gray-300 text-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50">
-                        
+                        <input 
+                            v-model="option.value"
+                            type="text"
+                            name="value"
+                            :data-index="index"
+                            class="w-11/12 rounded border-gray-300 text-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
+                        >
+
+                        <input 
+                            v-model="option.color"
+                            type="color"
+                            id="head"
+                            name="head"
+                            class="ml-2 rounded-lg"
+                        >
+
                         <button type="button" :disabled="index <= 1 ? true : false" @click="removeField" class="mr-0 ml-2 block text-white disabled:opacity-40 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base p-2.5 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
@@ -59,6 +73,49 @@
                 </button>
             </div>
 
+            <div class="flex divide-x divide-slate-300">
+                <div class="flex flex-col justify-center items-center w-1/2 gap-y-3 py-8 px-4 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                    </svg>
+                    <span class="text-lg font-normal">Anonymous Voting</span>
+                    <label for="anon_voting" class="flex items-center cursor-pointer">
+                        <div class="relative">
+                            <input 
+                                type="checkbox"
+                                class="sr-only peer"
+                                name="anon_voting"
+                                id="anon_voting"
+                                v-model="fields.anon_voting"
+                            >
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div class="dot absolute w-6 h-6 bg-gray-300 rounded-full shadow -left-1 -top-1 transition peer-checked:translate-x-full peer-checked:bg-blue-700"></div>
+                            </div>
+                    </label>
+                </div>
+
+                <div class="flex flex-col justify-center items-center w-1/2 gap-y-3 py-8 px-4 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-lg font-normal">Vote Geolocation Tracking</span>
+                    <label for="geolocation_tracking" class="flex items-center cursor-pointer">
+                        <div class="relative">
+                            <input 
+                                type="checkbox"
+                                class="sr-only peer"
+                                name="geolocation_tracking"
+                                id="geolocation_tracking"
+                                v-model="fields.geolocation_tracking"
+                                checked="checked"
+                            >
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div class="dot absolute w-6 h-6 bg-gray-300 rounded-full shadow -left-1 -top-1 transition peer-checked:translate-x-full peer-checked:bg-blue-700"></div>
+                            </div>
+                    </label>
+                </div>
+            </div>
+
             <div class="mt-8">
                 <button type="submit" 
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -71,11 +128,26 @@
 </template>
 
 <script>
+    import VueRandomColor from 'vue-randomcolor';
+    Vue.use(VueRandomColor);
+
     export default {
         data: function() {
             return {
-                options: [{value: ''}, {value: ''}],
-                fields: {},
+                options: [
+                    {
+                        value: '',
+                        color: this.$randomColor()
+                    },
+                    {
+                        value: '',
+                        color: this.$randomColor()
+                    }
+                ],
+                fields: {
+                    anon_voting: false,
+                    geolocation_tracking: true
+                },
                 success: false,
                 errors: {},
                 pollData: false
@@ -83,7 +155,10 @@
         },
         methods: {
             addField: function() {
-                this.options.push({value: ''});
+                this.options.push({
+                    value: '',
+                    color: this.$randomColor()
+                });
             },
             removeField: function(event) {
                 let index = event.target.previousElementSibling.getAttribute('data-index');
@@ -95,6 +170,7 @@
             },
             submit: function() {
                 this.fields.options = this.options;
+                console.log(this.fields);
 
                 axios.post('/api/create/poll', this.fields)
                     .then((response) => {
