@@ -14,7 +14,8 @@ class Option extends Model
     protected $fillable = [
         'value',
         'poll_id',
-        'slug'
+        'slug',
+        'color'
     ];
 
     protected $hidden = [
