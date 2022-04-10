@@ -25,5 +25,11 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "@turf/turf": "^6.5.0",
+        "mapbox-gl": "^2.8.0",
+        "v-mapbox": "^1.11.1",
+        "vue-mapbox": "^0.4.1"
     }
 }
