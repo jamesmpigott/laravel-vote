@@ -18,7 +18,7 @@ class IpGeolocationService {
             return $location;
         } 
 
-        $response = Http::get(
+        $response = Http::retry(3,100)->get(
             'https://api.ipgeolocation.io/ipgeo',
             [
                 'apiKey' => config('services.ipgeo.key'),
