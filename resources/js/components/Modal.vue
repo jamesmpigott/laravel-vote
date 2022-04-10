@@ -22,7 +22,7 @@
             leave-from-class="opacity-100 translate-y-0 sm:scale-100"
             leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 
-            <div class="bg-white w-2/3 lg:w-1/2 mx-auto rounded shadow-lg z-50 overflow-hidden transform transition-all overflow-y-scroll max-h-fit"
+            <div class="bg-white w-2/3 lg:w-1/2 mx-auto rounded shadow-lg z-50 overflow-hidden transform transition-all overflow-y-scroll max-h-[90%]"
                 role="dialog"
                 aria-modal="true">
 
