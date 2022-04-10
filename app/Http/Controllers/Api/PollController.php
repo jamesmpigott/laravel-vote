@@ -26,13 +26,16 @@ class PollController extends Controller
         
         $poll = Poll::create([
             'title' => $validated['title'],
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'anon_voting' => $validated['anon_voting'],
+            'geolocation_tracking' => $validated['geolocation_tracking'],
         ]);
 
         foreach($validated['options'] as $opt) {
             $option = Option::create([
                 'value' => $opt['value'],
-                'poll_id' => $poll->id
+                'color' => $opt['color'],
+                'poll_id' => $poll->id,
             ]);
         }
 
