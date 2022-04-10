@@ -16,7 +16,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="mt-8 h-[600px]">
+        <div class="mt-8 h-[400px]">
             <MglMap :accessToken="accessToken" :mapStyle="mapStyle" @load="onMapLoaded">
                 <MglMarker v-for="(loc, index) in voteLocations" :coordinates="loc.coords" :key="'marker_' + index"/>
             </MglMap>
