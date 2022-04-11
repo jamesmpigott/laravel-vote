@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <div class="flex items-start flex-col">
+            <div v-if="!poll.anon_voting" class="flex items-start flex-col">
                 <label for="email" class="text-sm text-gray-600">Email Address</label>
                 <input v-model="fields.email" type="email" name="email" id="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <div v-if="errors && errors.email" class="text-sm text-red-500">
