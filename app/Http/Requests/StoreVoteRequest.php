@@ -27,11 +27,18 @@ class StoreVoteRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => Rule::unique('votes')->where(fn ($query) => $query->where('poll_id', Poll::where('slug', $this->input('poll_slug'))->first()->id)),
+        $rules = [
             'option_id' => 'required',
             'poll_slug' => 'required'
         ];
+
+        $poll = Poll::where('slug', $this->input('poll_slug'))->first();
+        
+        if(!$poll->anon_voting) {
+            $rules['email'] = Rule::unique('votes')->where(fn ($query) => $query->where('poll_id', $poll->id));
+        }
+
+        return $rules;
     }
 
     public function passedValidation() {
