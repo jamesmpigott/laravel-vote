@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@turf/bbox": "^6.5.0",
         "@turf/turf": "^6.5.0",
         "mapbox-gl": "^2.8.0",
         "randomcolor": "^0.6.2",
