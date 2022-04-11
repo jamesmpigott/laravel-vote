@@ -26,6 +26,5 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/poll-results/{poll}', [PollController::class, 'pollResults']);
 });
 
-Route::get('polls/', [PollController::class, 'index']);
 Route::get('polls/{poll}', [PollController::class, 'show']);
 Route::post('vote', [VoteController::class, 'processVote']);

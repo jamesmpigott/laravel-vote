@@ -13,10 +13,6 @@ use Illuminate\Contracts\Validation\Validator;
 
 class PollController extends Controller
 {
-    public function index() {
-        return PollResource::collection(Poll::all());
-    }
-
     public function show(Poll $poll) {
         return new PollResource($poll);
     }
