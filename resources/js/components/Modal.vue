@@ -34,7 +34,7 @@
                             </slot>
                         </p>
                         <div 
-                            class="modal-close hover:cursor-pointer z-50"
+                            class="modal-close hover:cursor-pointer z-50 p-4"
                             @click="close"
                         >
                             <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
