@@ -54,7 +54,7 @@ class ProcessVote implements ShouldQueue
         
         Vote::create([
             'poll_id' => $poll->id,
-            'email' => $this->data['email'],
+            'email' => $poll->anon_voting ? '' : $this->data['email'],
             'option_id' => $option->id,
             'ip_address' => $this->ip,
             'geolocation' => $location
