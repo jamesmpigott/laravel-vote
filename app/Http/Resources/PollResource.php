@@ -18,7 +18,8 @@ class PollResource extends JsonResource
             'title' => $this->title,
             'url' => route('poll.show', $this),
             'slug' => $this->slug,
-            'options' => $this->options
+            'options' => $this->options,
+            'anon_voting' => $this->anon_voting,
         ];
     }
 }
