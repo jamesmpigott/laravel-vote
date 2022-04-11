@@ -60,9 +60,20 @@
                         @if(Auth::user()->avatar)
                             <img src="{{ Auth::user()->avatar }}" class="w-16 h-16 rounded-full">
                         @endif
-                        <span class="font-serif text-2xl">
-                            {{ __("Hi, :name", ['name' => Auth::user()->name]) }} 
-                        </span>
+                        <div class="flex items-center justify-between">
+                            <span class="font-serif text-2xl">
+                                {{ __("Hi, :name", ['name' => Auth::user()->name]) }} 
+                            </span>
+                            <form method="POST" action="{{ route('logout') }}" class="ml-4 flex items-center">
+                                @csrf
+                                @method('POST')
+                                <button class="text-xs text-slate-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
                     </div>
 
                     <x-button type="button" class="mt-8 w-full" @click="setModalTitle('Poll Builder');showModal(); currentModalComponent = 'poll-builder';">{{ __("Build a new Poll") }}</x-button>
