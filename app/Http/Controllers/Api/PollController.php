@@ -61,18 +61,24 @@ class PollController extends Controller
             ];
         }
 
-        foreach($poll->votes as $vote) {
-            $locs[] = [
-                'coords' => [
-                    (float)$vote->geolocation['long'],
-                    (float)$vote->geolocation['lat']
-                ]
-            ];
+        if($poll->geolocation_tracking) {
+            foreach($poll->votes as $vote) {
+                if(isset($vote->geolocation['long']) && isset($vote->geolocation['lat'])) {
+                    $locs[] = [
+                        'coords' => [
+                            (float)$vote->geolocation['long'],
+                            (float)$vote->geolocation['lat']
+                        ],
+                        'color' => $vote->option->color,
+                        'option' => $vote->option->value
+                    ];
+                }
+            }
         }
         
         return [
             'options' => $options,
-            'locs' => $locs
+            'locs' => $poll->geolocation_tracking ? $locs : null
         ];
     }
 }
