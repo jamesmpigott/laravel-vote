@@ -50,10 +50,15 @@ class PollController extends Controller
         $options = [];
         $locs = [];
 
-        foreach($poll->options as $opt) {
+        $opts = Option::where('poll_id', $poll->id)
+            ->withCount('votes')
+            ->orderBy('votes_count', 'desc')
+            ->get();
+        
+        foreach($opts as $opt) {
             $options[] = [
                 'value' => $opt->value,
-                'voteCount' => $opt->votes->count()
+                'voteCount' => $opt->votes_count
             ];
         }
 
