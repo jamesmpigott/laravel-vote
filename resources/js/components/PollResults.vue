@@ -43,19 +43,16 @@
     </div>
 </template>
 <script>
-    import Mapbox from "mapbox-gl";
-    import promisify from 'map-promisified';
     import { 
         MglMap,
         MglMarker,
         MglPopup,
         MglAttributionControl,
         MglNavigationControl,
-        MglFullscreenControl,
-        MglScaleControl
     } from "vue-mapbox";
 
-    import * as turf from '@turf/turf';
+    import bbox from '@turf/bbox';
+    import * as turf from '@turf/helpers';
 
     export default {
         components: {
@@ -63,8 +60,6 @@
             MglMarker,
             MglPopup,
             MglNavigationControl,
-            MglScaleControl,
-            MglFullscreenControl,
             MglAttributionControl
         },
         props: [
@@ -130,7 +125,7 @@
                     this.voteLocations.forEach((loc) => {
                         coordsArray.push(loc.coords);
                     });
-                    return turf.bbox(turf.lineString(coordsArray));
+                    return bbox(turf.lineString(coordsArray));
                 }
 
             }
