@@ -19,7 +19,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased selection:bg-violet-300">
         <div class="min-h-screen flex flex-col items-center justify-center bg-center bg-cover relative" 
             style="background-color: #8EC5FC;background-image: linear-gradient({{ mt_rand(0,360)}}deg, #8EC5FC 0%, #E0C3FC 100%);"
         >
