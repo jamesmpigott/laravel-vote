@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col lg:flex-row justify-between lg:gap-x-4 items-start" v-if="dataFetched">
-        <div class="w-full lg:w-1/2 rounded-lg border border-gray-200">
+        <div :class="{'lg:w-1/2' : voteLocations}" class="w-full  rounded-lg border border-gray-200">
             <table class="table-auto w-full">
                 <thead class="bg-slate-50">
                     <tr>
