@@ -19,7 +19,7 @@ use App\Http\Controllers\ThirdPartyLoginController;
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/polls/{poll}', [PollController::class, 'show'])->name('poll.show');
+Route::get('/{poll}', [PollController::class, 'show'])->name('poll.show');
 
 Auth::routes();
 
