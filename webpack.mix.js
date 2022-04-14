@@ -1,5 +1,20 @@
 const mix = require('laravel-mix');
 
+const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+
+mix.webpackConfig({
+    plugins:
+    [
+        new WebpackShellPluginNext({
+            onBuildStart: {
+                scripts: [
+                    'php artisan lang:js -s lang --quiet'
+                ]
+            }
+        })
+    ]
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
