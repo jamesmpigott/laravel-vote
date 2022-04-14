@@ -16,7 +16,7 @@
         @csrf
         @method('POST')
         <div class="flex flex-col">
-            <x-label for="email">{{ __('Email Address') }}</x-label>
+            <x-label for="email">{{ __('generic.email') }}</x-label>
 
             <x-input id="email"
                 type="email"
@@ -32,7 +32,7 @@
             @enderror
         </div>
 
-        <x-button type="submit">{{ __('Send Password Reset Link') }}</x-button>
+        <x-button type="submit">{{ __('generic.send-password-reset') }}</x-button>
 
     </form>
 </main>

@@ -20,5 +20,8 @@ return [
     'login' => "Login",
     'login-with' => "Login with :driver",
     'remember' => "Remember Me",
-
+    'forgot-password' => "Forgot Your Password?",
+    'confirm-password-text' => "Please confirm your password before continuing",
+    'send-password-reset' => "Send Password Reset Link",
+    'reset-password' => "Reset Password"
 ];

@@ -48,11 +48,11 @@
         </x-label>
     </div>
 
-    <x-button type="submit">{{ __('Login') }}</x-button>
+    <x-button type="submit">{{ __('generic.login') }}</x-button>
 
     @if (Route::has('password.request'))
         <a class="block mt-2 text-sm text-slate-600" href="{{ route('password.request') }}">
-            {{ __('Forgot Your Password?') }}
+            {{ __('generic.forgot-password') }}
         </a>
     @endif
 </form>

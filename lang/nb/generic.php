@@ -19,5 +19,9 @@ return [
     'have-account' => "Har du allerede en konto?",
     'login' => "Logg Inn",
     'login-with' => "Logg inn med :driver",
-    'remember' => "Husk meg"
+    'remember' => "Husk meg",
+    'forgot-password' => "Glemt passordet?",
+    'confirm-password-text' => "Vennligst bekreft passordet ditt før du fortsetter",
+    'send-password-reset' => "Send passord tilbakestilt lenke",
+    'reset-password' => "Tilbakestille passord"
 ];
