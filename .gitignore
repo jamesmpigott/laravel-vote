@@ -15,4 +15,5 @@ yarn-error.log
 
 public/css/app.css
 public/js/*
+public/**/*.js
 public/mix-manifest.json
