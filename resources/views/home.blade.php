@@ -1,25 +1,25 @@
 @extends('layouts.app')
 
 @section('meta')
-    <title>{{ __("Super Simple Polls") . ' | ' . __("Build beautiful polls, with none of the fuss.") }}</title>
+    <title>{{ __("generic.site-title") . ' | ' . __("generic.tagline") }}</title>
 @endsection
 
 @section('content')
 <main id="app">
     <div class="container flex flex-wrap md:flex-nowrap justify-between md:gap-8 md:items-center lg:items-start">
         <div class="w-full lg:w-5/12 text-left">
-            <h1 class="text-9xl font-light tracking-tight font-serif">{{ __("Super Simple Polls") }}</h1>
+            <h1 class="text-9xl font-light tracking-tight font-serif">{{ __("generic.site-title") }}</h1>
 
-            <p class="block mt-8 text-xl font-medium">{{ __("Build beautiful polls, with none of the fuss.") }}</p>
+            <p class="block mt-8 text-xl font-medium">{{ __("generic.tagline") }}</p>
         </div>
         <div class="w-full mt-10 md:mt-0 lg:w-5/12 xl:w-4/12">
             <div class="bg-white rounded-lg p-8 drop-shadow-xl">
                 @if(!Auth::user())
-                    <span class="font-serif text-4xl block text-left mb-4">{{ __("Get Started") }}</span>
+                    <span class="font-serif text-4xl block text-left mb-4">{{ __("generic.get-started") }}</span>
 
                     <button class="block my-4 text-sm text-gray-700" id="hideRegistration">
-                        {{ __("Already have an account?") }}
-                        <span class="underline pointer-events-none">{{ __(" Login") }}</span>
+                        {{ __("generic.have-account") }}
+                        <span class="underline pointer-events-none">{{ __("generic.login") }}</span>
                     </button>
 
                     <div id="register">
@@ -36,7 +36,7 @@
                             class="mr-2"
                             width="24"
                             height="24">
-                        {{ __('Login with Github') }}
+                        {{ __("generic.login-with", ['driver' => 'Github']) }}
                     </a>
 
                     <a href="{{ route('oauth.login', 'google') }}" 
@@ -53,7 +53,7 @@
                             <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
                             <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
                         </svg>
-                        {{ __('Login with Google') }}
+                        {{ __("generic.login-with", ['driver' => 'Google']) }}
                     </a>
                 @else
                     <div class="flex justify-start items-center gap-x-8">
@@ -62,9 +62,9 @@
                         @endif
                         <div class="flex items-center justify-between">
                             <span class="font-serif text-2xl">
-                                {{ __("Hi, :name", ['name' => Auth::user()->name]) }} 
+                                {{ __("generic.greeting", ['name' => Auth::user()->name]) }} 
                             </span>
-                            <form method="POST" action="{{ route('logout') }}" class="ml-4 flex items-center">
+                            <form method="POST" action="{{ route('logout') }}" class="ml-4 mb-0 flex items-center">
                                 @csrf
                                 @method('POST')
                                 <button class="text-xs text-slate-400">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
 
-                    <x-button type="button" class="mt-8 w-full" @click="setModalTitle('Poll Builder');showModal(); currentModalComponent = 'poll-builder';">{{ __("Build a new Poll") }}</x-button>
+                    <x-button type="button" class="mt-8 w-full" @click="setModalTitle('{{ __('poll-builder.title') }}');showModal(); currentModalComponent = 'poll-builder';">{{ __("poll-builder.build-poll") }}</x-button>
 
                     <user-polls></user-polls>
                 @endif

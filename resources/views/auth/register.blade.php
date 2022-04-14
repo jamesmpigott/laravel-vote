@@ -2,7 +2,7 @@
     @csrf
     @method('POST')
     <div class="flex flex-col">
-        <x-label for="name">{{ __('Name') }}</x-label>
+        <x-label for="name">{{ __('generic.name') }}</x-label>
 
         <x-input id="name"
             type="text"
@@ -20,7 +20,7 @@
     </div>
 
     <div class="flex flex-col">
-        <x-label for="email">{{ __('Email Address') }}</x-label>
+        <x-label for="email">{{ __('generic.email') }}</x-label>
 
         <x-input id="register_email"
             type="email"
@@ -37,7 +37,7 @@
     </div>
 
     <div class="flex flex-col">
-        <x-label for="password">{{ __('Password') }}</x-label>
+        <x-label for="password">{{ __('generic.password') }}</x-label>
 
         <x-input id="register_password"
             type="password"
@@ -53,7 +53,7 @@
     </div>
 
     <div class="flex flex-col">
-        <x-label for="password-confirm">{{ __('Confirm Password') }}</x-label>
+        <x-label for="password-confirm">{{ __('generic.password-confirm') }}</x-label>
 
         <x-input id="password-confirm"
             type="password"
@@ -62,5 +62,5 @@
             autocomplete="new-password"/>
     </div>
 
-    <x-button type="submit">{{ __('Register') }}</x-button>
+    <x-button type="submit">{{ __('generic.register') }}</x-button>
 </form>

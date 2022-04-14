@@ -5,7 +5,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
             </svg>
-            <span class="block text-xl mt-4 font-semibold text-slate-900">Your Poll has been created!</span>
+            <span class="block text-xl mt-4 font-semibold text-slate-900">{{ this.$trans.get('poll-builder.created') }}</span>
 
             <div class="w-full lg:w-3/4 relative mt-8">
                 <input 
@@ -15,6 +15,8 @@
                     ref="clone"
                     type="text"
                     readonly
+                    autocomplete="off"
+                    data-lpignore="true"
                 >
                 <button @click="copy" class="absolute right-2 top-[calc(50%-0.625rem)]">
                     <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400 h-5 w-5 pointer-events-none" viewBox="0 0 20 20" fill="currentColor">
@@ -26,7 +28,7 @@
         </div>
         <div v-else class="text-left flex flex-col gap-y-4">
             <div class="flex items-start flex-col gap-y-2">
-                <label for="email" class="block font-medium text-sm text-gray-700">What's your question?</label>
+                <label for="email" class="block font-medium text-sm text-gray-700">{{ this.$trans.get('poll-builder.question') }}</label>
                 <input v-model="fields.title" type="text" name="title" id="title" class="w-full rounded border-gray-300 text-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50">
                 <div v-if="errors && errors.title" class="text-xs text-red-600">
                     {{ errors.title[0] }}
@@ -34,7 +36,7 @@
             </div>
 
             <div class="flex items-start flex-col gap-y-2">
-                <label for="options" class="block font-medium text-sm text-gray-700">What are the choices?</label>
+                <label for="options" class="block font-medium text-sm text-gray-700">{{ this.$trans.get('poll-builder.choices') }}</label>
                 
                 <div v-for="(option, index) in options" class="w-full">
                     <div class="flex justify-between items-center">
@@ -78,7 +80,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
                     </svg>
-                    <span class="text-lg font-normal">Anonymous Voting</span>
+                    <span class="text-lg font-normal">{{ this.$trans.get('poll-builder.anon_voting') }}</span>
                     <label for="anon_voting" class="flex items-center cursor-pointer">
                         <div class="relative">
                             <input 
@@ -98,7 +100,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span class="text-lg font-normal">Vote Geolocation Tracking</span>
+                    <span class="text-lg font-normal">{{ this.$trans.get('poll-builder.geolocation') }}</span>
                     <label for="geolocation_tracking" class="flex items-center cursor-pointer">
                         <div class="relative">
                             <input 
@@ -119,7 +121,7 @@
             <div class="mt-8">
                 <button type="submit" 
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    Create your poll
+                    {{ this.$trans.get('poll-builder.create') }}
                 </button>
             </div>
 

@@ -4,14 +4,14 @@
             <table class="table-auto w-full">
                 <thead class="bg-slate-50">
                     <tr>
-                        <th class="p-2.5">Choice</th>
-                        <th class="p-2.5">Votes</th>
+                        <th class="p-2.5 text-left">{{ this.$trans.get('generic.choice') }}</th>
+                        <th class="p-2.5 text-left">{{ this.$trans.get('generic.votes') }}</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     <tr v-for="(option, index) in pollOptions" :key="'option_' + index">
-                        <td class="p-2.5">{{ option.value }}</td>
-                        <td class="p-2.5">{{ option.voteCount }}</td>
+                        <td class="p-2.5 text-left">{{ option.value }}</td>
+                        <td class="p-2.5 text-left">{{ option.voteCount }}</td>
                     </tr>
                 </tbody>
             </table>

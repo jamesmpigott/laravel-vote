@@ -25,6 +25,8 @@ Vue.component('poll-builder', require('./components/PollBuilder.vue').default);
 Vue.component('user-polls', require('./components/UserPolls.vue').default);
 Vue.component('pollResults', require('./components/PollResults.vue').default);
 
+Vue.prototype.$trans = Lang;
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

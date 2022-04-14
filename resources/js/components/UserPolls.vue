@@ -1,10 +1,10 @@
 <template>
     <div v-if="dataFetched">
         <div v-if="!polls.length" class="mt-6">
-            You haven't built any polls yet! Click the button above to change that...
+            {{ this.$trans.get('generic.no-polls') }}
         </div>
         <div v-else class="mt-6">
-            <span class="block text-xl font-serif mb-2">Your polls</span>
+            <span class="block text-xl font-serif mb-2">{{ this.$trans.get('generic.your-polls') }}</span>
             <div class="flex flex-col divide-y divide-gray-500">
                 <div v-for="poll in polls" v-bind:key="poll.slug" class="flex justify-between items-center py-1.5">
                     <span class="block w-10/12 pr-4">{{ poll.title }}</span>

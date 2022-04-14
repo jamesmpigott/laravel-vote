@@ -3,7 +3,7 @@
     @method('POST')
 
     <div class="flex flex-col">
-        <x-label for="email">{{ __('Email Address') }}</x-label>
+        <x-label for="email">{{ __('generic.email') }}</x-label>
 
         <x-input id="email" 
             type="email" 
@@ -21,7 +21,7 @@
     </div>
 
     <div class="flex flex-col">
-        <x-label for="password">{{ __('Password') }}</x-label>
+        <x-label for="password">{{ __('generic.password') }}</x-label>
 
         <input id="password"
             type="password"
@@ -44,7 +44,7 @@
                 name="remember"
                 id="remember"
                 {{ old('remember') ? 'checked' : '' }}>
-            <span class="ml-2">{{ __('Remember Me') }}</span>
+            <span class="ml-2">{{ __('generic.remember') }}</span>
         </x-label>
     </div>
 
