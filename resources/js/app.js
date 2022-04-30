@@ -24,6 +24,7 @@ Vue.component('modal', require('./components/Modal.vue').default);
 Vue.component('poll-builder', require('./components/PollBuilder.vue').default);
 Vue.component('user-polls', require('./components/UserPolls.vue').default);
 Vue.component('pollResults', require('./components/PollResults.vue').default);
+Vue.component('locale-switcher', require('./components/LocaleSwitcher.vue').default);
 
 Vue.prototype.$trans = Lang;
 

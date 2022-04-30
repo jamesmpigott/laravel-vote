@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~nice-select2/dist/css/nice-select2.css";
+
 input[type="color"] {
 	-webkit-appearance: none;
 	border: none;
