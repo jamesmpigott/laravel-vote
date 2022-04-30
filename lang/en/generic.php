@@ -23,5 +23,6 @@ return [
     'forgot-password' => "Forgot Your Password?",
     'confirm-password-text' => "Please confirm your password before continuing",
     'send-password-reset' => "Send Password Reset Link",
-    'reset-password' => "Reset Password"
+    'reset-password' => "Reset Password",
+    'poll-load-error' => "There was an error loading your polls. Please try again later"
 ];

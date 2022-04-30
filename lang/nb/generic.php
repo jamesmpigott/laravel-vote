@@ -23,5 +23,6 @@ return [
     'forgot-password' => "Glemt passordet?",
     'confirm-password-text' => "Vennligst bekreft passordet ditt før du fortsetter",
     'send-password-reset' => "Send passord tilbakestilt lenke",
-    'reset-password' => "Tilbakestille passord"
+    'reset-password' => "Tilbakestille passord",
+    "poll-load-error" => "Det var en feil med å laste inn avstemningene dine. Prøv igjen senere"
 ];
