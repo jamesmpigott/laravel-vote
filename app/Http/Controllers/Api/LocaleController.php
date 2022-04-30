@@ -33,9 +33,13 @@ class LocaleController extends Controller
                     'label' => "Norsk Bokmål",
                     'text' => "🇳🇴"
                 ],
+                [
+                    'value' => "de",
+                    'label' => "deutsch",
+                    'text' => "🇩🇪"
+                ],
             ],
             'selectedLocale' => self::getLocale()
-            // 'selectedLocale' => 'nb'
         ];
     }
 
