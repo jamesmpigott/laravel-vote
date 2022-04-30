@@ -45,8 +45,6 @@
                             }
                         });
 
-                        console.log(this.selectedLocale);
-                        
                         this.dataFetched = true;
 
                     })

@@ -35,8 +35,13 @@ class LocaleController extends Controller
                 ],
                 [
                     'value' => "de",
-                    'label' => "deutsch",
+                    'label' => "Deutsch",
                     'text' => "🇩🇪"
+                ],
+                [
+                    'value' => "es",
+                    'label' => "Español",
+                    'text' => "🇪🇸"
                 ],
             ],
             'selectedLocale' => self::getLocale()
