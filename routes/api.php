@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PollController;
 use App\Http\Controllers\Api\VoteController;
+use App\Http\Controllers\Api\LocaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
 Route::get('polls/{poll}', [PollController::class, 'show']);
 Route::post('vote', [VoteController::class, 'processVote']);
+Route::get('polls/', [PollController::class, 'index']);
+Route::post('change-locale', [LocaleController::class, 'changeLocale']);
+Route::get('get-locales', [LocaleController::class, 'getLocales']);

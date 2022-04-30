@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<main id="app">
     <div class="container flex flex-wrap md:flex-nowrap justify-between md:gap-8 md:items-center lg:items-start">
         <div class="w-full lg:w-5/12 text-left">
             <h1 class="text-9xl font-light tracking-tight font-serif">{{ __("generic.site-title") }}</h1>
@@ -96,5 +95,4 @@
         </modal>
 
     @endif
-</main>
 @endsection

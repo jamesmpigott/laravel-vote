@@ -24,11 +24,15 @@
         <div class="min-h-screen flex flex-col items-center justify-center bg-center bg-cover relative" 
             style="background-color: #8EC5FC;background-image: linear-gradient({{ mt_rand(0,360)}}deg, #8EC5FC 0%, #E0C3FC 100%);"
         >
-            @yield('content')
+            <main id="app" class="container mt-12 md:mt-20 lg:mt-24 pb-8 px-4 lg:px-0">
+                <header class="w-full pt-4 absolute top-0 left-0 text-center flex justify-center items-center">
+                    <locale-switcher />
+                </header>
 
-            <footer class="w-full fixed bottom-0">
-                
-            </footer>
+                @yield('content')
+
+            </main>
+
         </div>
     </body>
 </html>
